@@ -2,20 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine's Day Special</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Be My Valentine 💘</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: pink;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      width: 320px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      margin-right: 20px;
+    }
+
+    #no {
+      background: #ccc;
+      color: black;
+      position: absolute;
+    }
+
+    .kitty {
+      display: none;
+    }
+
+    .kitty img {
+      width: 180px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="headline">Happy Valentine's Day, My Sweetheart! 💘</h1>
-    <div class="heart" id="heart">
-      <div class="heart-shape"></div>
-      <div class="heart-shape"></div>
+
+  <div class="card" id="card">
+    <h1>Will you be my Valentine? 💕</h1>
+
+    <button id="yes">YES 💖</button>
+    <button id="no">NO 🙅‍♀️</button>
+
+    <div class="kitty" id="kitty">
+      <h2>YAYYYYY!!! 🥰</h2>
+      <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Happy Kitty">
+      <p>I knew it 😽💘</p>
     </div>
-    <p class="message">You make my heart race faster than a cup of coffee... ☕💓</p>
-    <button id="popButton" class="pop-btn">Pop a Heart for You! 💥</button>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const kitty = document.getElementById("kitty");
+    const card = document.getElementById("card");
+
+    // Make NO button run away 😈
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (card.clientWidth - noBtn.clientWidth);
+      const y = Math.random() * (card.clientHeight - noBtn.clientHeight);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    // YES = happy kitty 🐱💖
+    yesBtn.addEventListener("click", () => {
+      card.innerHTML = "";
+      card.appendChild(kitty);
+      kitty.style.display = "block";
+    });
+  </script>
+
 </body>
 </html>
+
